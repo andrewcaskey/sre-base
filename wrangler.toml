@@ -3,3 +3,5 @@
 name = "sre-blog"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-11-08"
+# Personal "AndrewCaskey" Cloudflare account (not the work/myacmedia account).
+account_id = "d4eb85b26c6dda80dead821d6501cc4b"
