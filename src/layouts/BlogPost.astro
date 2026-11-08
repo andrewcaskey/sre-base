@@ -1,0 +1,28 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  category?: string;
+}
+
+const { title, description, date, category } = Astro.props;
+const dateStr = date.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<BaseLayout title={`${title} — sre-base`} description={description}>
+  <a class="back-link" href="/">← all posts</a>
+  <article class="prose">
+    <p class="post-meta" style="margin-top:24px">
+      {dateStr}{category ? ` · ${category}` : ""}
+    </p>
+    <h1>{title}</h1>
+    <slot />
+  </article>
+</BaseLayout>

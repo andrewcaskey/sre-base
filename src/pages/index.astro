@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+---
+
+<BaseLayout title="sre-base — Andrew Caskey">
+  <h1>sre-base</h1>
+  <p class="lead">
+    Field notes on observability, infrastructure, and reliability
+    engineering — from someone who runs the systems.
+  </p>
+
+  <ul class="post-list">
+    {
+      posts.map((post) => (
+        <li>
+          <p class="post-meta">
+            {fmt(post.data.date)}
+            {post.data.category ? ` · ${post.data.category}` : ""}
+          </p>
+          <a class="post-title" href={`/blog/${post.id}/`}>
+            {post.data.title}
+          </a>
+          <p class="post-desc">{post.data.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

@@ -1,0 +1,5 @@
+# Cloudflare Pages config for the sre-base blog.
+# `wrangler pages deploy` reads these, so no --project-name flag is needed.
+name = "sre-blog"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-11-08"
