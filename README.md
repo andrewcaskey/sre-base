@@ -4,6 +4,13 @@ My SRE / observability blog, served publicly at **[sre.andrewcaskey.com](https:/
 
 Built with [Astro](https://astro.build) (static site), deployed to **Cloudflare Pages**.
 
+## ✍️ Jump in and write
+
+- **Full workflow (both blogs + VS Code):** [`docs/BLOGGING.md`](docs/BLOGGING.md)
+- **New SRE post:** add a file to [`src/content/blog/`](src/content/blog/) → `npm run dev` → `npm run deploy`
+- **New portfolio post:** `../portfolio/public/blogs/` + an entry in `../portfolio/src/portfolio.js`
+- **Live sites:** [sre.andrewcaskey.com](https://sre.andrewcaskey.com) · [andrewcaskey.com/blog](https://andrewcaskey.com/blog)
+
 ## Write a post
 
 Add a markdown file to `src/content/blog/`:
@@ -21,7 +28,7 @@ Post body in markdown...
 ```
 
 The filename (minus `.md`) becomes the URL slug: `src/content/blog/my-post.md`
-→ `https://sre.myacmedia.com/blog/my-post/`.
+→ `https://sre.andrewcaskey.com/blog/my-post/`.
 
 ## Develop
 
